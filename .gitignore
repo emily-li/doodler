@@ -12,12 +12,9 @@ dist
 dist-ssr
 *.local
 
-# Editor directories and files
 .vscode/*
-!.vscode/extensions.json
-# For my purposes, I like to have my settings shared
-!.vscode/settings.json
 .idea
+.qodo
 .DS_Store
 *.suo
 *.ntvs*
