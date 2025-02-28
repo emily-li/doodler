@@ -1,5 +1,7 @@
+@import url("https://fonts.bunny.net/css2?family=Gamja+Flower&display=swap");
 @import "tailwindcss";
 
 @theme {
-    --color-backdrop: var(--color-yellow-100);
+  --color-backdrop: var(--color-yellow-100);
+  --font-display: "Gamja Flower", sans-serif;
 }
