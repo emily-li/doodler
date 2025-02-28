@@ -16,7 +16,11 @@ const generateIdea = (): string => {
 export default function DoodlePage() {
   const [idea, setIdea] = useState<string>("");
 
-  /** Validate colours at https://webaim.org/resources/contrastchecker/ */
+  /*
+   * Check colours at 
+   * https://webaim.org/resources/contrastchecker/
+   * https://tailwindcss.com/docs/colors
+   */
   return (
     <div className="text-center p-8 font-comic min-h-screen bg-backdrop">
       <h1 className="text-5xl text-rose-700 font-bold mb-8">doodler</h1>
