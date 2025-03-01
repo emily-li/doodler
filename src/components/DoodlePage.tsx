@@ -21,7 +21,7 @@ export default function DoodlePage() {
         <h1 className="text-9xl text-rose-700 font-bold mb-8">doodler</h1>
 
         <button
-          className="container py-2 px-4 text-2xl rounded-lg cursor-pointer  active:translate-0.5 bg-emerald-600 text-backdrop active:bg-emerald-700"
+          className="container py-2 px-4 text-2xl rounded-lg cursor-pointer active:translate-0.5 bg-emerald-600 text-backdrop active:bg-emerald-700"
           onClick={updateIdea}
         >
           generate doodle idea

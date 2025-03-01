@@ -13,29 +13,24 @@ const getFallbackIdea = (): string => {
 };
 
 const fetchIdea = async (): Promise<string> => {
-  try {
-    const response = await fetch("http://localhost:5000/api/v1/idea", {
-      method: "POST",
-    });
+  const response = await fetch("http://localhost:5000/api/v1/idea", {
+    method: "POST",
+  });
 
-    if (!response.ok) {
-      throw new Error(
-        `API request failed. Status: ${response.status}. Body: ${await response.text()}`
-      );
-    } else {
-      const data = await response.json();
+  const data = await response.text();
+  const idea = JSON.parse(data).idea;
 
-      if (!data.idea) {
-        throw new Error("API response missing idea property");
-      } else {
-        return data.idea;
-      }
-    }
-  } catch (error) {
-    console.error("Error fetching idea:", error);
-    throw error; // Re-throw to be handled by generateIdea
+  if (!idea) {
+    throw new Error(
+      `Status: '${response.status}'. Body: '${await response.text()}'`
+    );
+  } else {
+    return idea;
   }
 };
 
 export const generateIdea = async (): Promise<string> =>
-  fetchIdea().catch(() => getFallbackIdea());
+  fetchIdea().catch((e) => {
+    console.error("Failed to generate idea", e);
+    return getFallbackIdea();
+  });
