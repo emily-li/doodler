@@ -3,13 +3,10 @@ import { generateIdea } from "../utils/ideaGenerator.ts";
 
 export default function DoodlePage() {
   const [idea, setIdea] = useState<string>("");
-  const [isLoading, setIsLoading] = useState(false);
 
   const updateIdea = async (): Promise<void> => {
-    setIsLoading(true);
     setIdea("...");
     const newIdea = await generateIdea();
-    setIsLoading(false);
     setIdea(newIdea);
   };
 
@@ -30,7 +27,7 @@ export default function DoodlePage() {
           generate doodle idea
         </button>
         <br />
-        {idea &&   <p className="mt-8 text-5xl text-cyan-900">{idea}</p>}
+        {idea && <p className="mt-8 text-5xl text-cyan-900">{idea}</p>}
       </div>
     </div>
   );
