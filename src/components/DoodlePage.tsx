@@ -7,6 +7,7 @@ export default function DoodlePage() {
 
   const updateIdea = async (): Promise<void> => {
     setIsLoading(true);
+    setIdea("...");
     const newIdea = await generateIdea();
     setIsLoading(false);
     setIdea(newIdea);
@@ -26,12 +27,10 @@ export default function DoodlePage() {
           className="container py-2 px-4 text-2xl rounded-lg cursor-pointer  active:translate-0.5 bg-emerald-600 text-backdrop active:bg-emerald-700"
           onClick={updateIdea}
         >
-          {isLoading ? "..." : "generate doodle idea"}
+          generate doodle idea
         </button>
         <br />
-        {idea && !isLoading && (
-          <p className="mt-8 text-5xl text-cyan-900">{idea}</p>
-        )}
+        {idea &&   <p className="mt-8 text-5xl text-cyan-900">{idea}</p>}
       </div>
     </div>
   );
