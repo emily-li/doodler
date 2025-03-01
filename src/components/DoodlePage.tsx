@@ -3,9 +3,12 @@ import { generateIdea } from "../utils/ideaGenerator.ts";
 
 export default function DoodlePage() {
   const [idea, setIdea] = useState<string>("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const updateIdea = async (): Promise<void> => {
+    setIsLoading(true);
     const newIdea = await generateIdea();
+    setIsLoading(false);
     setIdea(newIdea);
   };
 
@@ -23,10 +26,12 @@ export default function DoodlePage() {
           className="container py-2 px-4 text-2xl rounded-lg cursor-pointer  active:translate-0.5 bg-emerald-600 text-backdrop active:bg-emerald-700"
           onClick={updateIdea}
         >
-          generate doodle idea
+          {isLoading ? "..." : "generate doodle idea"}
         </button>
         <br />
-        {idea && <p className="mt-8 text-5xl text-cyan-900">{idea}</p>}
+        {idea && !isLoading && (
+          <p className="mt-8 text-5xl text-cyan-900">{idea}</p>
+        )}
       </div>
     </div>
   );
