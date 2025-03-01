@@ -4,8 +4,9 @@ import { generateIdea } from "../utils/ideaGenerator.ts";
 export default function DoodlePage() {
   const [idea, setIdea] = useState<string>("");
 
-  const updateIdea = (): void => {
-    setIdea(generateIdea());
+  const updateIdea = async (): Promise<void> => {
+    const newIdea = await generateIdea();
+    setIdea(newIdea);
   };
 
   /*

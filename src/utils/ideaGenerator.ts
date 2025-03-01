@@ -37,5 +37,5 @@ const fetchIdea = async (): Promise<string> => {
   }
 };
 
-export const generateIdea = (): Promise<string> =>
+export const generateIdea = async (): Promise<string> =>
   fetchIdea().catch(() => getFallbackIdea());
