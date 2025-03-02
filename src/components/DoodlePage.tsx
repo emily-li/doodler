@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { generateIdea } from "../utils/ideaGenerator.ts";
 import DoodleIdea from "./DoodleIdea";
 import DoodleIdeaButton from "./DoodleIdeaButton";
-import { Tldraw } from "tldraw";
+import TldrawWrapper from "./TldrawWrapper";
 import "tldraw/tldraw.css";
 
 export default function DoodlePage() {
@@ -22,13 +22,13 @@ export default function DoodlePage() {
   return (
     <div className="flex flex-col font-display text-center p-8 h-screen bg-backdrop">
       <div className="max-w-md mx-auto">
-        <h1 className="text-9xl text-rose-700 font-bold mb-8">doodler</h1>
+        <h1 className="text-9xl text-rose-700 font-bold mb-4">doodler</h1>
 
         <DoodleIdeaButton onClick={updateIdea} />
         <DoodleIdea idea={idea} />
       </div>
 
-      <Tldraw className="mt-8" />
+      <TldrawWrapper className="mt-8" />
     </div>
   );
 }
