@@ -1,7 +1,15 @@
 import { Suspense, lazy } from "react";
+import "tldraw/tldraw.css";
+import {
+  DrawShapeTool,
+  Editor
+} from "tldraw";
 
-// Lazy load the Tldraw component
-const TldrawComponent = lazy(() =>
+const onMount = (editor: Editor) => {
+    editor.setCurrentTool(DrawShapeTool.id);
+};
+
+const LazyTldraw = lazy(() =>
   import("tldraw").then((module) => ({
     default: module.Tldraw,
   }))
@@ -14,7 +22,11 @@ interface TldrawWrapperProps {
 export default function TldrawWrapper(props: TldrawWrapperProps) {
   return (
     <Suspense>
-      <TldrawComponent persistenceKey="tldraw_store" {...props} />
+      <LazyTldraw
+        persistenceKey="tldraw_store"
+        onMount={onMount}
+        {...props}
+      />
     </Suspense>
   );
 }

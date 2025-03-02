@@ -3,7 +3,6 @@ import { generateIdea } from "../utils/ideaGenerator.ts";
 import DoodleIdea from "./DoodleIdea";
 import DoodleIdeaButton from "./DoodleIdeaButton";
 import TldrawWrapper from "./TldrawWrapper";
-import "tldraw/tldraw.css";
 
 export default function DoodlePage() {
   const [idea, setIdea] = useState<string>("");
@@ -25,8 +24,8 @@ export default function DoodlePage() {
    * https://tailwindcss.com/docs/colors
    */
   return (
-    <div className="flex flex-col font-display text-center p-8 h-screen bg-backdrop">
-      <div className="max-w-md mx-auto">
+    <div className="flex flex-col text-center p-8 h-screen bg-backdrop">
+      <div className="font-display max-w-md mx-auto">
         <h1 className="text-9xl text-rose-700 font-bold mb-4">doodler</h1>
 
         <DoodleIdeaButton onClick={updateIdea} />
