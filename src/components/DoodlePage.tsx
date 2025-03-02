@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { generateIdea } from "../utils/ideaGenerator.ts";
+import DoodleIdea from "./DoodleIdea";
+import DoodleIdeaButton from "./DoodleIdeaButton";
+import { Tldraw } from "tldraw";
+import "tldraw/tldraw.css";
 
 export default function DoodlePage() {
   const [idea, setIdea] = useState<string>("");
@@ -16,19 +20,15 @@ export default function DoodlePage() {
    * https://tailwindcss.com/docs/colors
    */
   return (
-    <div className="font-display text-center p-8 font-comic min-h-screen bg-backdrop">
+    <div className="flex flex-col font-display text-center p-8 h-screen bg-backdrop">
       <div className="max-w-md mx-auto">
         <h1 className="text-9xl text-rose-700 font-bold mb-8">doodler</h1>
 
-        <button
-          className="container py-2 px-4 text-2xl rounded-lg cursor-pointer active:translate-0.5 bg-emerald-600 text-backdrop active:bg-emerald-700"
-          onClick={updateIdea}
-        >
-          generate doodle idea
-        </button>
-        <br />
-        {idea && <p className="mt-8 text-5xl text-cyan-900">{idea}</p>}
+        <DoodleIdeaButton onClick={updateIdea} />
+        <DoodleIdea idea={idea} />
       </div>
+
+      <Tldraw className="mt-8" />
     </div>
   );
 }
