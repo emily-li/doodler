@@ -1,4 +1,4 @@
-import { useState, Suspense } from "react";
+import { useState } from "react";
 import { generateIdea } from "../utils/ideaGenerator.ts";
 import DoodleIdea from "./DoodleIdea";
 import DoodleIdeaButton from "./DoodleIdeaButton";
@@ -7,11 +7,16 @@ import "tldraw/tldraw.css";
 
 export default function DoodlePage() {
   const [idea, setIdea] = useState<string>("");
+  const [isLoadingIdea, setIsLoadingIdea] = useState<boolean>(false);
 
   const updateIdea = async (): Promise<void> => {
-    setIdea("...");
+    setIdea("");
+    setIsLoadingIdea(true);
+
     const newIdea = await generateIdea();
+
     setIdea(newIdea);
+    setIsLoadingIdea(false);
   };
 
   /*
@@ -25,7 +30,7 @@ export default function DoodlePage() {
         <h1 className="text-9xl text-rose-700 font-bold mb-4">doodler</h1>
 
         <DoodleIdeaButton onClick={updateIdea} />
-        <DoodleIdea idea={idea} />
+        <DoodleIdea idea={isLoadingIdea ? "..." : idea} />
       </div>
 
       <TldrawWrapper className="mt-8" />
