@@ -1,12 +1,9 @@
 import { Suspense, lazy } from "react";
 import "tldraw/tldraw.css";
-import {
-  DrawShapeTool,
-  Editor
-} from "tldraw";
+import { DrawShapeTool, Editor } from "tldraw";
 
 const onMount = (editor: Editor) => {
-    editor.setCurrentTool(DrawShapeTool.id);
+  editor.setCurrentTool(DrawShapeTool.id);
 };
 
 const LazyTldraw = lazy(() =>
@@ -22,11 +19,7 @@ interface TldrawWrapperProps {
 export default function TldrawWrapper(props: TldrawWrapperProps) {
   return (
     <Suspense>
-      <LazyTldraw
-        persistenceKey="tldraw_store"
-        onMount={onMount}
-        {...props}
-      />
+      <LazyTldraw persistenceKey="tldraw_store" onMount={onMount} {...props} />
     </Suspense>
   );
 }

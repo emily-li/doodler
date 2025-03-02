@@ -32,7 +32,7 @@ export default function DoodlePage() {
         <DoodleIdea idea={isLoadingIdea ? "..." : idea} />
       </div>
 
-      <TldrawWrapper className="mt-8" />
+      <TldrawWrapper className="mt-8 border rounded-lg border-rose-700" />
     </div>
   );
 }
