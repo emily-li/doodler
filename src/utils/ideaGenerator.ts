@@ -13,9 +13,16 @@ const getFallbackIdea = (): string => {
 };
 
 const fetchIdea = async (): Promise<string> => {
-  const response = await fetch("http://localhost:5000/api/v1/idea", {
-    method: "POST",
-  });
+  const response = await fetch(
+    "https://emilyli.pythonanywhere.com/api/v1/idea",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({}),
+    }
+  );
 
   const data = await response.text();
   const idea = JSON.parse(data).idea;
