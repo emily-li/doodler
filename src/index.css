@@ -2,6 +2,5 @@
 @import "tailwindcss";
 
 @theme {
-  --color-backdrop: var(--color-yellow-100);
   --font-display: "Gamja Flower", sans-serif;
 }
