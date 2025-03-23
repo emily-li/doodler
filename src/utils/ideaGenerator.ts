@@ -37,7 +37,9 @@ const fetchIdea = async (): Promise<string> => {
 };
 
 export const generateIdea = async (): Promise<string> =>
-  fetchIdea().catch((e) => {
-    console.error("Failed to generate idea", e);
-    return getFallbackIdea();
-  });
+  fetchIdea()
+    .catch((e) => {
+      console.error("Failed to generate idea", e);
+      return getFallbackIdea();
+    })
+    .then((idea) => idea.toLowerCase());

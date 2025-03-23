@@ -2,7 +2,7 @@ import { generateIdea } from "../ideaGenerator";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 
 globalThis.fetch = vi.fn();
-const expectedUrl = "http://localhost:5000/api/v1/idea";
+const expectedUrl = "https://emilyli.pythonanywhere.com/api/v1/idea";
 const expectedMethod = "POST";
 
 describe("generateIdea", () => {
@@ -10,8 +10,8 @@ describe("generateIdea", () => {
     vi.resetAllMocks();
   });
 
-  it("should return idea from API", async () => {
-    mockFetchResponse(`{ "idea": "api response" }`);
+  it("should return idea from API in lowercase", async () => {
+    mockFetchResponse(`{ "idea": "API response" }`);
 
     const result = await generateIdea();
 
