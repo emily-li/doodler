@@ -24,13 +24,17 @@ export default function DoodlePage() {
    * https://tailwindcss.com/docs/colors
    */
   return (
-    <div className="flex flex-col text-center p-8 h-screen bg-gradient-to-b from-yellow-100 to-yellow-200">
-      <div className="font-display max-w-md mx-auto">
+    <div className="flex flex-col text-center p-8 h-screen font-display bg-gradient-to-b from-yellow-100 to-yellow-200">
+      <div className="max-w-md mx-auto">
         <h1 className="text-9xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-rose-700 to-rose-900">
           doodler
         </h1>
 
-        <DoodleIdeaButton onClick={updateIdea} />
+        <div>
+          <DoodleIdeaButton onClick={updateIdea} />
+        </div>
+      </div>
+      <div>
         <DoodleIdea idea={isLoadingIdea ? "..." : idea} />
       </div>
 
