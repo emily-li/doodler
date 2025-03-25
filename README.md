@@ -1,5 +1,12 @@
 # doodler
-https://emily-li.github.io/doodler/
+
+A fun tiny project for doodling ideas
+
+<img src="./docs/doodler.png" width="500" alt="Doodler">
+
+
+
+GitHub page: https://emily-li.github.io/doodler/
 
 ## Dependencies
 1. Install pnpm https://pnpm.io/installation
