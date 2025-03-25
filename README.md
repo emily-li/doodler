@@ -3,7 +3,7 @@
 A fun tiny project for doodling ideas
 
 <a href="https://emily-li.github.io/doodler/">
-    <img src="./docs/doodler.png" width="500" alt="Doodler"/>
+    <img src="./docs/doodler.png" width="500" alt="Doodler screenshot linking to GitHub page"/>
 </a>
 
 GitHub page: https://emily-li.github.io/doodler/
