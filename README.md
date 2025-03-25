@@ -2,7 +2,7 @@
 
 A fun tiny project for doodling ideas
 
-<img src="./docs/doodler.png" width="500" alt="Doodler">
+<img src="./docs/doodler.png" width="500" alt="Doodler"/>
 
 
 
